@@ -4,8 +4,6 @@ import de.neuefische.cgn221springstudent.model.Student;
 import de.neuefische.cgn221springstudent.services.StudentService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("student")
 public class StudentController {
@@ -16,6 +14,7 @@ public class StudentController {
    public Student getStudentById (@PathVariable String id){
         return service.getStudentById(id);
     }
+
     @PostMapping
     public void addStudent(@RequestBody Student student){
         service.addStudent(student);
