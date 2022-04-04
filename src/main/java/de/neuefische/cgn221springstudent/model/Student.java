@@ -1,15 +1,15 @@
 package de.neuefische.cgn221springstudent.model;
 
 public class Student {
-    private int id;
+    private String id;
     private String name;
 
     public Student(String id, String name) {
-        this.id = Integer.parseInt(id);
+        this.id = id;
         this.name = name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 

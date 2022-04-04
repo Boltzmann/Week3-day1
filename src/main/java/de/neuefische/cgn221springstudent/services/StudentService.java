@@ -10,9 +10,10 @@ public class StudentService {
 
     public void addStudent(Student student) {
         repo.addStudent(student);
+
     }
 
-    public Student getStudentById(int id) {
+    public Student getStudentById(String id) {
         return repo.getStudentById(id);
     }
 }

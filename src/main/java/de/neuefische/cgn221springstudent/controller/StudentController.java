@@ -13,7 +13,7 @@ public class StudentController {
     StudentService service = new StudentService();
 
     @GetMapping(path ="{id}")
-   public Student getStudentById (@PathVariable int id){
+   public Student getStudentById (@PathVariable String id){
         return service.getStudentById(id);
     }
     @PostMapping
