@@ -2,6 +2,7 @@ package de.neuefische.cgn221springstudent.controller;
 
 import de.neuefische.cgn221springstudent.model.Student;
 import de.neuefische.cgn221springstudent.services.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,7 +12,12 @@ import java.util.Map;
 @RequestMapping("student")
 public class StudentController {
 
-    StudentService service = new StudentService();
+    private final StudentService service;
+
+    @Autowired
+    public StudentController (StudentService service){
+        this.service = service;
+    }
 
     @GetMapping(path ="{id}")
    public Student getStudentById (@PathVariable String id){
@@ -28,7 +34,7 @@ public class StudentController {
         service.addStudent(student);
     }
 
-    @PostMapping(path="delete"+"{id}")
+    @PostMapping(path="delete/"+"{id}")
     public void deleteStudentById(@RequestBody String id){
         service.deleteStudentByID(id);
     }
