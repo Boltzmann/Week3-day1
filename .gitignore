@@ -32,4 +32,4 @@ build/
 
 ### VS Code ###
 .vscode/
->>>>>>> e5997dc (spring exercise 1)
+/.mvn/wrapper/maven-wrapper.jar
