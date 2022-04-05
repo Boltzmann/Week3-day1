@@ -9,5 +9,4 @@ public class Cgn221SpringstudentApplication {
     public static void main(String[] args) {
         SpringApplication.run(Cgn221SpringstudentApplication.class, args);
     }
-
 }

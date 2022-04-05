@@ -12,14 +12,32 @@ public class StudentController {
 
     StudentService service = new StudentService();
 
-    @GetMapping(path ="{id}")
-   public Student getStudentById (@PathVariable String id){
+    @RequestMapping("/all")
+    public List<Student> getAllStudents() {
+        return service.getAllStudents();
+    }
+
+    @GetMapping(path = "{id}")
+    public Student getStudentById(@PathVariable String id) {
         return service.getStudentById(id);
     }
+
+    @GetMapping(path = "/name/{partOfName}")
+    public List<Student> getStudentsByPartOfName(@PathVariable String partOfName) {
+        return service.getStudentsByPartOfName(partOfName);
+    }
+
     @PostMapping
-    public void addStudent(@RequestBody Student student){
+    public void addStudent(@RequestBody Student student) {
         service.addStudent(student);
     }
+
+    @DeleteMapping(path = "{id}")
+    public void delStudentById(@PathVariable String id) {
+        service.delStudentById(id);
+    }
+
+
 }
 
 
