@@ -1,6 +1,7 @@
 package de.neuefische.cgn221springstudent.repo;
 
 import de.neuefische.cgn221springstudent.model.Student;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 
-
+@Service
 public class StudentRepo {
     Map<String, Student> students = new HashMap<>();
 
@@ -20,7 +21,7 @@ public class StudentRepo {
     }
 
     public List<Student> getAllStudentsAsList() {
-        List<Student> studentsArrayList = new ArrayList<Student>();
+        List<Student> studentsArrayList = new ArrayList<>();
         for (String key  : students.keySet())  {
             studentsArrayList.add(students.get(key));
         }
@@ -32,7 +33,7 @@ public class StudentRepo {
     }
 
     public List<Student> getStudentsByPartOfName(String partOfName) {
-        List<Student> studentsArrayList = new ArrayList<Student>();
+        List<Student> studentsArrayList = new ArrayList<>();
         for (String key  : students.keySet())  {
             if(students.get(key).getName().toUpperCase().contains((partOfName).toUpperCase())) {
                 studentsArrayList.add(students.get(key));

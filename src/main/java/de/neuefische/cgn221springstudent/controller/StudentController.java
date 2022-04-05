@@ -2,6 +2,7 @@ package de.neuefische.cgn221springstudent.controller;
 
 import de.neuefische.cgn221springstudent.model.Student;
 import de.neuefische.cgn221springstudent.services.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,7 +11,12 @@ import java.util.List;
 @RequestMapping("student")
 public class StudentController {
 
-    StudentService service = new StudentService();
+    private final StudentService service;
+
+    @Autowired
+    public StudentController(StudentService service) {
+        this.service = service;
+    }
 
     @RequestMapping("/all")
     public List<Student> getAllStudents() {
