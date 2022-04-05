@@ -10,7 +10,12 @@ import java.util.List;
 @RequestMapping("student")
 public class StudentController {
 
-    StudentService service = new StudentService();
+//    StudentService service = new StudentService();
+    private final StudentService service;
+
+    public StudentController(StudentService service) {
+        this.service = service;
+    }
 
     @RequestMapping("/all")
     public List<Student> getAllStudents() {
@@ -36,8 +41,6 @@ public class StudentController {
     public void delStudentById(@PathVariable String id) {
         service.delStudentById(id);
     }
-
-
 }
 
 
