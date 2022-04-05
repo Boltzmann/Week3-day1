@@ -59,4 +59,18 @@ class StudentServiceTest {
         // Then
         verify(studentRepo).delStudentById("1");
     }
+
+    @Test
+    void getStudentsByPartOfName(){
+        // Given
+        List<Student> studentList = new ArrayList<>(List.of(
+                new Student("1", "Mister Muster"),
+                new Student("2", "Frau Muster")
+        ));
+        when(studentRepo.getStudentsByPartOfName("Muster")).thenReturn(studentList);
+        // When
+        // Then
+        Assertions.assertEquals(studentList, myTestService.getStudentsByPartOfName("Muster"));
+        verify(studentRepo).getStudentsByPartOfName("Muster");
+    }
 }
