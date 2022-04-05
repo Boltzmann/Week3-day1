@@ -32,7 +32,6 @@ public class StudentService {
         repo.delStudentById(id);
     }
 
-
     public List<Student> getStudentsByPartOfName(String partOfName) {
         return repo.getStudentsByPartOfName(partOfName);
     }

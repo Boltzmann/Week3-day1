@@ -51,5 +51,12 @@ class StudentServiceTest {
         Assertions.assertEquals(studentList, actual);
     }
 
-
+    @Test
+    void delStudentById() {
+        // Given done before.
+        // When
+        studentRepo.delStudentById("1");
+        // Then
+        verify(studentRepo).delStudentById("1");
+    }
 }
