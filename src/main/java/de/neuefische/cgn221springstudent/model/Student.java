@@ -1,5 +1,8 @@
 package de.neuefische.cgn221springstudent.model;
 
+import lombok.ToString;
+
+@ToString
 public class Student {
     private String id;
     private String name;
