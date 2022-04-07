@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 @Service
 public class StudentRepo {
     Map<String, Student> students = new HashMap<>();
@@ -40,5 +39,9 @@ public class StudentRepo {
             }
         }
         return studentsArrayList;
+    }
+
+    public void clear() {
+        this.students = new HashMap<>();
     }
 }
