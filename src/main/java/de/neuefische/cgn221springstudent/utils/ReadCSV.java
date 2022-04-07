@@ -7,17 +7,30 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class ReadCSV {
-    public static void main(String[] args){
-        try {
-            String currentPath = new java.io.File(".").getCanonicalPath();
-            System.out.println("Current dir:" + currentPath);
-            Files.lines(Path.of(currentPath + "/students.csv"))
-                    .forEach(student -> System.out.println(student));
-        } catch (IOException e) {
-            System.err.println("Path not OK.");
-            e.printStackTrace();
-        }
+    // https://stackoverflow.com/questions/4871051/how-to-get-the-current-working-directory-in-java
+    private final String path = new File(".").getCanonicalPath() + "/students.csv";
+
+    public ReadCSV() throws IOException {}
+
+    public static void main(String[] args) throws IOException {
+        ReadCSV readCSV = new ReadCSV();
+        readCSV.printAllLines();
+        System.out.println("--- Now without Header ---");
+        readCSV.printLinesWithoutHeader();
     }
+
+    private void printAllLines() throws IOException {
+        Files.lines(Path.of(path))
+                .forEach(student -> System.out.println(student));
+    }
+
+    private void printLinesWithoutHeader() throws IOException {
+        Files.lines(Path.of(path))
+                .skip(1)
+                .forEach(student -> System.out.println(student));
+    }
+
+
 
 
 }
